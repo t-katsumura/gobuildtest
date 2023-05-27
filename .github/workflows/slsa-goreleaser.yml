@@ -27,7 +27,8 @@ jobs:
       commit-date: ${{ steps.ldflags.outputs.commit-date }}
       commit: ${{ steps.ldflags.outputs.commit }}
       version: ${{ steps.ldflags.outputs.version }}
-      tree-state: ${{ steps.ldflags.outputs.tree-state }}
+      timestamp: ${{ steps.ldflags.outputs.timestamp }}
+      build: ${{ steps.ldflags.outputs.build }}
     steps:
       - uses: actions/checkout@v3
         with:
