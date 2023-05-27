@@ -1,3 +1,6 @@
+# Reference
+# https://github.com/slsa-framework/slsa-github-generator/blob/main/internal/builders/go/README.md
+
 name: SLSA Go Releaser
 
 on:
@@ -29,12 +32,10 @@ jobs:
       #   uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
       #   with:
       #     fetch-depth: 0
-      - id: checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - id: setup
-        uses: actions/setup-go@v4
+      - uses: actions/setup-go@v4
         with:
           go-version: 1.20
       - id: ldflags
@@ -61,7 +62,7 @@ jobs:
           - amd64
           - arm64
     with:
-      go-version: 1.20
+      go-version: 1.19
       config-file: .slsa-goreleaser/${{matrix.os}}-${{matrix.arch}}.yml
       # Optional: only needed if using ldflags.
       evaluated-envs: "COMMIT_DATE:${{needs.args.outputs.commit-date}}, COMMIT:${{needs.args.outputs.commit}}, VERSION:${{needs.args.outputs.version}}, TREE_STATE:${{needs.args.outputs.tree-state}}"
