@@ -5,15 +5,15 @@ version: 1
 env:
   - GO111MODULE=on
   - CGO_ENABLED=0
-  - -ldflags="-w  -s"
 
 # (Optional) Flags for the compiler.
 flags:
   - -trimpath
   - -tags=netgo
+  - -ldflags="-w  -s"
 
 # The OS to compile for. `GOOS` env variable will be set to this value.
-goos: linux
+goos: windows
 
 # The architecture to compile for. `GOARCH` env variable will be set to this value.
 goarch: amd64
