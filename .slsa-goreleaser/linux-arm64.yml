@@ -32,7 +32,8 @@ binary: aileron-{{ .Os }}-{{ .Arch }}
 ldflags:
   - "-w"
   - "-s"
-  - "-X main.Version={{ .Env.VERSION }}"
+  - "-X main.version={{ .Env.VERSION }}"
+  - "-X main.build={{ .Env.BUILD }}"
+  - "-X main.timestamp={{ .Env.TIMESTAMP }}"
   - "-X main.Commit={{ .Env.COMMIT }}"
   - "-X main.CommitDate={{ .Env.COMMIT_DATE }}"
-  - "-X main.TreeState={{ .Env.TREE_STATE }}"
