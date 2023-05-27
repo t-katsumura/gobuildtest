@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -11,6 +12,11 @@ import (
 var (
 	w  = bufio.NewWriterSize(os.Stdout, 1<<12)
 	lg = log.New(w, "", log.LstdFlags)
+
+	Version    string
+	Commit     string
+	CommitDate string
+	TreeState  string
 )
 
 /*
@@ -25,6 +31,11 @@ func okFunc(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+
+	fmt.Println(Version)
+	fmt.Println(Commit)
+	fmt.Println(CommitDate)
+	fmt.Println(TreeState)
 
 	addr := ":10001"
 	lg.Println("starting server at", addr)

@@ -18,6 +18,7 @@ on:
 permissions: read-all
 
 jobs:
+
   # Generate ldflags dynamically.
   # Optional: only needed for ldflags.
   args:
@@ -28,16 +29,9 @@ jobs:
       version: ${{ steps.ldflags.outputs.version }}
       tree-state: ${{ steps.ldflags.outputs.tree-state }}
     steps:
-      # - id: checkout
-      #   uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
-      #   with:
-      #     fetch-depth: 0
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: actions/setup-go@v4
-        with:
-          go-version: 1.20.4
       - id: ldflags
         run: |
           echo "commit-date=$(git log --date=iso8601-strict -1 --pretty=%ct)" >> "$GITHUB_OUTPUT"
@@ -62,6 +56,8 @@ jobs:
           - amd64
           - arm64
     with:
+      # Check go version to use.
+      # https://github.com/actions/go-versions/blob/main/versions-manifest.json
       go-version: 1.20.4
       config-file: .slsa-goreleaser/${{matrix.os}}-${{matrix.arch}}.yml
       # Optional: only needed if using ldflags.
