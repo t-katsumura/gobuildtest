@@ -34,11 +34,11 @@ jobs:
           fetch-depth: 0
       - id: ldflags
         run: |
-          echo "commit-date=$(git log -1 --date=format-local:'%Y-%m-%d_%H:%M:%S_%Z' --pretty=format:'%cd')" >> "$GITHUB_OUTPUT"
+          echo "commit-date=$(git log -1 --date=format-local:"'%Y-%m-%d_%H:%M:%S_%Z'" --pretty=format:"%cd")" >> "$GITHUB_OUTPUT"
           echo "commit=$GITHUB_SHA" >> "$GITHUB_OUTPUT"
           echo "version=$(git describe --tags --always --dirty | cut -c2-)" >> "$GITHUB_OUTPUT"
           echo "build=$(echo $(od -vAn --w=8 -tx -N8 </dev/random) | tr -d " ")" >> "$GITHUB_OUTPUT"
-          echo "timestamp=$(echo $(TZ=UTC date +"%Y-%m-%d_%H:%M:%S_%Z"))" >> "$GITHUB_OUTPUT"
+          echo "timestamp=$(echo $(TZ=UTC date +"'%Y-%m-%d_%H:%M:%S_%Z'"))" >> "$GITHUB_OUTPUT"
 
   # Trusted builder.
   build:

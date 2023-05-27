@@ -16,8 +16,8 @@ var (
 	version    string
 	build      string
 	timestamp  string
-	Commit     string
-	CommitDate string
+	commit     string
+	commitDate string
 )
 
 /*
@@ -36,8 +36,8 @@ func main() {
 	fmt.Println(version)
 	fmt.Println(build)
 	fmt.Println(timestamp)
-	fmt.Println(Commit)
-	fmt.Println(CommitDate)
+	fmt.Println(commit)
+	fmt.Println(commitDate)
 
 	addr := ":10001"
 	lg.Println("starting server at", addr)
