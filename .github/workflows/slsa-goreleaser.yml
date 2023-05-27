@@ -37,7 +37,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-go@v4
         with:
-          go-version: 1.20
+          go-version: 1.20.4
       - id: ldflags
         run: |
           echo "commit-date=$(git log --date=iso8601-strict -1 --pretty=%ct)" >> "$GITHUB_OUTPUT"
@@ -62,7 +62,7 @@ jobs:
           - amd64
           - arm64
     with:
-      go-version: 1.19
+      go-version: 1.20.4
       config-file: .slsa-goreleaser/${{matrix.os}}-${{matrix.arch}}.yml
       # Optional: only needed if using ldflags.
       evaluated-envs: "COMMIT_DATE:${{needs.args.outputs.commit-date}}, COMMIT:${{needs.args.outputs.commit}}, VERSION:${{needs.args.outputs.version}}, TREE_STATE:${{needs.args.outputs.tree-state}}"
