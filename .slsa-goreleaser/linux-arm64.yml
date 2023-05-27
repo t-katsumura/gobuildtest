@@ -10,7 +10,8 @@ env:
 flags:
   - -trimpath
   - -tags=netgo
-  - -ldflags="-w  -s"
+  - -ldflags=-w
+  - -ldflags=-s
 
 # The OS to compile for. `GOOS` env variable will be set to this value.
 goos: linux
