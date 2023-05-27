@@ -36,4 +36,4 @@ ldflags:
   - "-X main.build={{ .Env.BUILD }}"
   - "-X main.timestamp={{ .Env.TIMESTAMP }}"
   - "-X main.commit={{ .Env.COMMIT }}"
-  - "-X main.commitDate={{ .Env.COMMIT_DATE }}"
+  # - "-X main.commitDate={{ .Env.COMMIT_DATE }}"

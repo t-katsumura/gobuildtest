@@ -34,7 +34,6 @@ jobs:
           fetch-depth: 0
       - id: ldflags
         run: |
-          echo "commit-date=$(git log -1 --date=format-local:"'%Y-%m-%d_%H:%M:%S_%Z'" --pretty=format:"%cd")" >> "$GITHUB_OUTPUT"
           echo "commit=$GITHUB_SHA" >> "$GITHUB_OUTPUT"
           echo "version=$(git describe --tags --always --dirty | cut -c2-)" >> "$GITHUB_OUTPUT"
           echo "build=$(echo $(od -vAn --w=8 -tx -N8 </dev/random) | tr -d " ")" >> "$GITHUB_OUTPUT"
@@ -62,4 +61,4 @@ jobs:
       go-version: 1.20.4
       config-file: .slsa-goreleaser/${{matrix.os}}-${{matrix.arch}}.yml
       # Optional: only needed if using ldflags.
-      evaluated-envs: "COMMIT_DATE:${{needs.args.outputs.commit-date}}, COMMIT:${{needs.args.outputs.commit}}, VERSION:${{needs.args.outputs.version}}, BUILD:${{needs.args.outputs.build}}, TIMESTAMP:${{needs.args.outputs.timestamp}}"
+      evaluated-envs: "COMMIT:${{needs.args.outputs.commit}}, VERSION:${{needs.args.outputs.version}}, BUILD:${{needs.args.outputs.build}}, TIMESTAMP:${{needs.args.outputs.timestamp}}"
