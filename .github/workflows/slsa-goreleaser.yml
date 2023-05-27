@@ -18,8 +18,7 @@ jobs:
   # Generate ldflags dynamically.
   # Optional: only needed for ldflags.
   args:
-    runs-on: ubuntu-latest
-    if: github.ref_name == 'main' || github.ref_name == 'release-v[0-9].[0-9]+'
+    runs-on: ubuntu-22.04
     outputs:
       commit-date: ${{ steps.ldflags.outputs.commit-date }}
       commit: ${{ steps.ldflags.outputs.commit }}
