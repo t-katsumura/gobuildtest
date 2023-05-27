@@ -13,11 +13,11 @@ var (
 	w  = bufio.NewWriterSize(os.Stdout, 1<<12)
 	lg = log.New(w, "", log.LstdFlags)
 
-	version    string
-	build      string
-	timestamp  string
-	commit     string
-	commitDate string
+	version    = ""
+	build      = ""
+	timestamp  = ""
+	commit     = ""
+	commitDate = ""
 )
 
 /*
